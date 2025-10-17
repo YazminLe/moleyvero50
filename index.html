@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yabba Dabba 50</title>
 
-    <link rel="preload" as="image" href="imagen12.png">
+    <link rel="preload" as="image" href="imagen12.png" />
 
     <!-- Fuentes -->
     <link
@@ -112,7 +112,7 @@
         font-weight: 400;
         font-style: normal;
       }
-     
+
       h1 {
         font-family: "Fruktur", system-ui;
         font-weight: 700;
@@ -146,10 +146,9 @@
       }
 
       .boton-musica i {
-        color: #282a28; 
+        color: #282a28;
         transition: color 0.3s;
         text-shadow: none !important;
-
       }
 
       .detalles {
@@ -168,13 +167,19 @@
         font-size: 2em !important;
         color: #282a28;
         text-align: center;
+
         width: 100%;
         max-width: 900px;
-        height: 250px;
-        line-height: 250px;
-        margin: 30px auto;
-        background: url("imagen16.png") center/cover no-repeat;
+
+        aspect-ratio: 3 / 2;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: url("imagen16.png") center/contain no-repeat;
         border-radius: 25px;
+        margin: 30px auto;
       }
 
       .foto-festejados {
@@ -345,8 +350,11 @@
           Los Leija Pesina cumplimos medio siglo de aventuras
         </h1>
         <h2 class="caveat-brush-regular">
-          ¡Acompáñanos a celebrar <strong style="color: #ffaa21">nuestro cumpleaños número 50 </strong>! <br>
-          Celebremos momentos llenos de risas, amor y felicidad rodeados con ustedes, amigos y familiares. <br>
+          ¡Acompáñanos a celebrar
+          <strong style="color: #ffaa21">nuestro cumpleaños número 50 </strong>!
+          <br />
+          Celebremos momentos llenos de risas, amor y felicidad rodeados con
+          ustedes, amigos y familiares. <br />
           Gracias por formar parte de esta historia.
         </h2>
       </div>
@@ -375,8 +383,11 @@
       <div class="detalles">
         <h1 class="fruktur-regular">Detalles del evento</h1>
         <h2 class="caveat-brush-regular">
-          <strong style="color: #ffaa21">Lugar:</strong> Su hogar, Abedules 18, Cd. Camargo Tamps<br /> <strong style="color: #ffaa21">Fecha:</strong> Sábado 1 de
-          noviembre de 2025<br /> <strong style="color: #ffaa21">Hora:</strong> 6:30 P.M.
+          <strong style="color: #ffaa21">Lugar:</strong> Su hogar, Abedules 18,
+          Cd. Camargo Tamps<br />
+          <strong style="color: #ffaa21">Fecha:</strong> Sábado 1 de noviembre
+          de 2025<br />
+          <strong style="color: #ffaa21">Hora:</strong> 6:30 P.M.
         </h2>
       </div>
 
@@ -385,8 +396,9 @@
         <h2 class="caveat-brush-regular">
           No es requisito, solo una sugerencia si quieres sumarte a la
           temática.<br />
-          Eso sí, <strong style="color: #ffaa21">los únicos Pedro y Vilma</strong> de la noche ya están
-          asignados.
+          Eso sí,
+          <strong style="color: #ffaa21">los únicos Pedro y Vilma</strong> de la
+          noche ya están asignados.
         </h2>
 
         <div class="carousel-container">
@@ -520,5 +532,3 @@
     </script>
   </body>
 </html>
-
-
