@@ -239,6 +239,8 @@
         text-shadow: 2px 2px 5px #000;
         z-index: 1000;
         transition: transform 0.2s, box-shadow 0.2s;
+                text-shadow: none !important;
+
       }
 
       .prev:hover,
@@ -387,7 +389,7 @@
           Cd. Camargo Tamps<br />
           <strong style="color: #ffaa21">Fecha:</strong> Sábado 1 de noviembre
           de 2025<br />
-          <strong style="color: #ffaa21">Hora:</strong> 6:30 P.M.
+          <strong style="color: #ffaa21">Hora:</strong> 7:00 P.M.
         </h2>
       </div>
 
@@ -428,7 +430,7 @@
     <script>
       // Cuenta regresiva
       const countdownEl = document.getElementById("countdown");
-      const eventDate = new Date("November 1, 2025 18:30:00").getTime();
+      const eventDate = new Date("November 1, 2025 19:00:00").getTime();
       function updateCountdown() {
         const now = new Date().getTime();
         const distance = eventDate - now;
@@ -532,4 +534,3 @@
     </script>
   </body>
 </html>
-
