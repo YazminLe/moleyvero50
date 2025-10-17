@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yabba Dabba 50</title>
 
+    <link rel="preload" as="image" href="imagen12.png">
+
     <!-- Fuentes -->
     <link
       href="https://fonts.googleapis.com/css2?family=Fruktur&family=Caveat+Brush&family=Joti+One&family=Fredoka+One&display=swap"
       rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
     <style>
@@ -107,7 +115,7 @@
 
       h1 {
         font-family: "Fruktur", system-ui;
-        font-weight: 700; /* más gruesa */
+        font-weight: 700;
         font-size: 3.4em !important;
         margin-bottom: 30px;
         color: #ffaa21;
@@ -137,6 +145,13 @@
         text-align: center;
       }
 
+      .boton-musica i {
+        color: #282a28; 
+        transition: color 0.3s;
+        text-shadow: none !important;
+
+      }
+
       .detalles {
         width: 100%;
         background: url("imagen14.jpg") center/cover no-repeat;
@@ -150,7 +165,7 @@
       }
       .countdown {
         font-family: "Joti One", serif;
-        font-size: 3.4em !important;
+        font-size: 2.75em !important;
         color: #282a28;
         text-align: center;
         width: 100%;
@@ -282,10 +297,6 @@
         .countdown {
           font-size: 3em;
         }
-        .carrusel img {
-          width: 150px;
-          height: 150px;
-        }
         .foto-festejados img {
           max-width: 500px;
         }
@@ -318,7 +329,9 @@
   <body>
     <div class="fondo-fijo"></div>
 
-    <button class="boton-musica" id="musicBtn">⏸</button>
+    <button class="boton-musica" id="musicBtn">
+      <i class="fa-solid fa-play"></i>
+    </button>
 
     <section class="section portada">
       <div class="texto-centrado">
@@ -343,7 +356,6 @@
         style="position: relative; display: inline-block"
       >
         <img src="imagen2.png" alt="Festejados" style="pointer-events: none" />
-        <!-- la imagen ya no se puede seleccionar -->
         <div
           style="
             position: absolute;
@@ -363,7 +375,7 @@
       <div class="detalles">
         <h1 class="fruktur-regular">Detalles del evento</h1>
         <h2 class="caveat-brush-regular">
-          Lugar: Su hogar, Abedules 18, Cd. Camargo Tamps<br />Fecha: 1 de
+          Lugar: Su hogar, Abedules 18, Cd. Camargo Tamps<br />Fecha: Sábado 1 de
           noviembre de 2025<br />Hora: 6:30 P.M.
         </h2>
       </div>
@@ -372,7 +384,8 @@
         <h1 class="fruktur-regular">Outfit Inspo</h1>
         <h2 class="caveat-brush-regular">
           No es requisito, solo una sugerencia si quieres sumarte a la
-          temática.<br />Eso sí, <strong>los únicos Pedro y Vilma </strong>de la noche ya están
+          temática.<br />
+          Eso sí, <strong>los únicos Pedro y Vilma</strong> de la noche ya están
           asignados.
         </h2>
 
@@ -397,11 +410,13 @@
       <div class="countdown" id="countdown">Cargando cuenta regresiva...</div>
     </section>
 
-    <audio id="backgroundMusic" src="musica1.mp3" autoplay loop></audio>
+    <!-- Audio sin autoplay -->
+    <audio id="backgroundMusic" src="musica1.mp3" loop></audio>
 
     <script>
+      // Cuenta regresiva
       const countdownEl = document.getElementById("countdown");
-      const eventDate = new Date("November 1, 2025 19:00:00").getTime();
+      const eventDate = new Date("November 1, 2025 18:30:00").getTime();
       function updateCountdown() {
         const now = new Date().getTime();
         const distance = eventDate - now;
@@ -421,28 +436,30 @@
       const interval = setInterval(updateCountdown, 1000);
       updateCountdown();
 
+      // Música controlada por el usuario
       const musicBtn = document.getElementById("musicBtn");
       const music = document.getElementById("backgroundMusic");
+      const icon = musicBtn.querySelector("i");
+
       musicBtn.addEventListener("click", () => {
         if (music.paused) {
           music.play();
-          musicBtn.textContent = "⏸";
+          icon.className = "fa-solid fa-pause ";
         } else {
           music.pause();
-          musicBtn.textContent = "▶";
+          icon.className = "fa-solid fa-play";
         }
       });
 
+      // Carrusel
       const track = document.getElementById("track");
       const prev = document.querySelector(".prev");
       const next = document.querySelector(".next");
       const slides = Array.from(track.children);
-
       let counter = 0;
       const total = slides.length;
-      const slideWidth = slides[0].offsetWidth + 20; // ancho + gap
+      const slideWidth = slides[0].offsetWidth + 20;
 
-      // Clonamos las primeras imágenes para bucle infinito
       const clones = slides.slice(0, 3).map((img) => img.cloneNode(true));
       clones.forEach((clone) => track.appendChild(clone));
 
@@ -454,7 +471,6 @@
       next.addEventListener("click", () => {
         counter++;
         moveSlide();
-
         if (counter === total) {
           setTimeout(() => {
             track.style.transition = "none";
@@ -484,6 +500,7 @@
         track.style.transform = `translateX(0px)`;
       });
 
+      // Desactivar clic derecho y teclas de inspección
       document.addEventListener("contextmenu", (e) => e.preventDefault());
       document.addEventListener("keydown", function (e) {
         if (
@@ -503,4 +520,3 @@
     </script>
   </body>
 </html>
-
