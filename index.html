@@ -214,10 +214,13 @@
         border-radius: 15px;
         flex-shrink: 0;
         transition: transform 0.3s ease;
+        cursor: pointer;
       }
 
-      .carousel-track img:hover {
-        transform: scale(1.05);
+      .carousel-track img:hover,
+      .carousel-track img:active {
+        transform: scale(1.25);
+        z-index: 1500;
       }
 
       .prev,
@@ -566,7 +569,7 @@
         img.addEventListener("dragstart", (e) => e.preventDefault());
       });
 
-       const mask = document.getElementById("mask");
+      const mask = document.getElementById("mask");
       let deslizado = false;
 
       function quitarMascara() {
@@ -582,5 +585,3 @@
     </script>
   </body>
 </html>
-
-
