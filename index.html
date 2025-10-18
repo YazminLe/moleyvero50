@@ -7,13 +7,11 @@
 
     <link rel="preload" as="image" href="imagen12.png" />
 
-    <!-- Fuentes -->
     <link
       href="https://fonts.googleapis.com/css2?family=Fruktur&family=Caveat+Brush&family=Joti+One&family=Fredoka+One&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -226,10 +224,10 @@
       .prev,
       .next {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 80px;
-        height: 80px;
+        bottom: 15px; 
+        transform: none; 
+        width: 65px;
+        height: 65px;
         background: url("imagen14.png") center/cover no-repeat;
         border: none;
         border-radius: 50%;
@@ -237,7 +235,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2.5em;
+        font-size: 2em;
         color: #282a28;
         text-shadow: 2px 2px 5px #000;
         z-index: 1000;
@@ -503,7 +501,6 @@
         }
       });
 
-      // Carrusel
       const track = document.getElementById("track");
       const prev = document.querySelector(".prev");
       const next = document.querySelector(".next");
